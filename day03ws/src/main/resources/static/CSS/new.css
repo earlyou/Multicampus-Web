@@ -1,0 +1,126 @@
+@charset "EUC-KR";
+@import url('https://fonts.googleapis.com/css2?family=Water+Brush&family=Zen+Loop:ital@0;1&display=swap');
+/* Global CSS start------------------------------------------------*/
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+ul,ol{
+	list-style: none;
+}
+/* Global CSS end------------------------------------------------*/
+
+/* Header CSS start------------------------------------------------*/
+header{
+	width: 600px;
+	height: 100px;
+	background: red;
+	margin: 0 auto;
+	font-family: 'Water Brush', cursive;
+}
+header > h1{
+	text-align: center;
+	line-height: 100px;
+}
+/* Header CSS end------------------------------------------------*/
+
+/* Nav CSS start------------------------------------------------*/
+nav{
+	width: 600px;
+	height: 30px;
+	background: pink;
+	margin: 0 auto;
+}
+nav > ul{
+	width: 500px;
+	margin: 0 auto;
+}
+nav > ul > li{
+	float: left;
+	width: 125px;
+	line-height: 30px;
+}
+nav > ul > li > a{
+	display: block;
+	text-align: center;
+}
+nav > ul > li > a:hover{
+	background: gray ;
+	color: white;
+}
+/* Nav CSS end------------------------------------------------*/
+
+/* Section CSS start------------------------------------------------*/
+section{
+	width: 600px;
+	height: 500px;
+	background: gray;
+	margin: 0 auto;
+}
+section > aside{
+	float: left;
+}
+section > #left_aside{
+	width: 100px;
+	height: 500px;
+	background: yellow;
+}
+section > #left_aside > ul{
+	width: 100px;
+	height: 280px;
+	margin-top: 110px;
+}
+section > #left_aside > ul > li{
+	width: 100px;
+	height: 40px;
+	text-align: center;
+}
+section > #center_aside{
+	width: 400px;
+	height: 500px;
+	background: white;
+}
+section > #center_aside > article{
+	width: 350px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	border: 2px dashed green;
+	margin: 5px auto;
+	border-radius: 10px 10px 10px 10px;	
+}
+section > #center_aside > #tb1{
+	width: 350px;
+	height: 200px;
+	border: 1px solid black;
+	border-collapse: collapse;
+	margin: 10px auto;
+}
+section > #center_aside > #tb1 > th,td{
+	border: 1px solid black;
+	line-height: 25px;
+	text-align: center;
+}
+section > #right_aside{
+	width: 100px;
+	height: 500px;
+	background: gray;
+}
+section > #right_aside > a > img{
+	width: 100px;
+	height: 500px;
+}
+/* Section CSS end------------------------------------------------*/
+
+/* Footer CSS start------------------------------------------------*/
+Footer{
+	width: 600px;
+	height: 30px;
+	background: black;
+	margin: 0 auto;
+}
+/* Footer CSS end------------------------------------------------*/
