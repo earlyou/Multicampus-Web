@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Shopping Mall</title>
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<header>
+		<h1><a href="/">Shopping Mall</a></h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="home">Home</a></li>
+			<li><a href="food">Food</a></li>
+			<li><a href="wear">Wear</a></li>
+			<li><a href="media">Media</a></li>
+		</ul>
+	</nav>
+	<section th:include="${center}">
+	</section>
+	<footer></footer>
+</body>
+</html>
