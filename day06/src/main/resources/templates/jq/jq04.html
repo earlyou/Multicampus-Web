@@ -1,0 +1,196 @@
+<meta charset="UTF-8">
+<style>
+	#id,#pwd,#pwdcon,#gender,#email{
+		width: 300px;
+	}
+	#fname{
+		margin-left: 10px;
+		width: 143px;
+		display: inline-block;
+	}
+	#lname{
+		width: 143px;
+		display: inline-block;
+	}
+	#dob{
+		width: 300px;
+		display: inline-block;
+	}
+	span{
+		margin-left: 10px;
+		color: red;
+		font-size: 10px;
+	}
+	.correct{
+		color: blue;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+		// focus했을 때 제어와 입력하지 않고 blur했을 때 제어
+		$('input[name="id"]').blur(function(){
+			var txt = $(this).val();
+			if(txt.length < 5 && txt.length > 0){
+				$('#sid').text('ID는 5자리 이상입니다.');
+			}else if(txt == ''){
+				$('#sid').text('ID는 필수 항목입니다.');
+			}else{
+				$('#sid').text('');
+			};
+		});
+		$('input[name="pwd"]').blur(function(){
+			var txt = $(this).val();
+			if(txt.length < 8 && txt.length > 0){
+				$('#spwd').text('PWD는 8자리 이상입니다.');
+			}else if(txt == ''){
+				$('#spwd').text('PWD는 필수 항목입니다.');
+			}else{
+				$('#spwd').text('');
+			};
+		});
+		$('input[name="pwdcon"]').blur(function(){
+			var txt = $(this).val();
+			var pss = $('input[name="pwd"]').val();
+			if (txt == '') {
+				$(spwdcon).text('비밀번호를 다시 입력해주세요.');
+				return;
+			}
+			if(txt != pss){
+				$('#spwdcon').text('비밀번호가 일치하지 않습니다.');
+			};
+			if(txt == pss){
+				$('#spwdcon').addClass('correct');
+				$('#spwdcon').text('비밀번호가 일치합니다.');
+			};
+		});
+		$('input[name="lname"]').blur(function(){
+			var txt = $(this).val();
+			if(txt == ''){
+				$('#sname').text('이름은 필수 항목입니다.');
+			}else{
+				$('#sname').text('');
+			};
+		});
+		$('input[name="fname"]').blur(function(){
+			var txt = $(this).val();
+			if(txt == ''){
+				$('#sname').text('이름은 필수 항목입니다.');
+			}else{
+				$('#sname').text('');
+			};
+		});
+		$('input[name="dob"]').blur(function(){
+			var txt = $(this).val();
+			if(txt == ''){
+				$('#sdob').text('생년월일은 필수 항목입니다.');
+			}else{
+				$('#sdob').text('');
+			};
+		});
+		$('#gender').blur(function(){
+			var txt = $(this).val();
+			if(txt == '성별'){
+				$('#sgender').text('성별은 필수 항목입니다.');
+			}else{
+				$('#sgender').text('');
+			};
+		});
+		
+		// 회원가입 버튼 제어
+		$('button').click(function(){
+			var id = $('input[name="id"]').val();
+			var pwd = $('input[name="pwd"]').val();
+			var pwdcon = $('input[name="pwdcon"]').val();
+			var lname = $('input[name="lname"]').text;
+			var fname = $('input[name="fname"]').text;
+			var name = '';
+			var dob = $('input[name="dob"]').val();
+			var gender = $('select[name="gender"]').val();
+			var email = $('input[name="email"]').val();
+			console.log("lname");
+			// 아무것도 입력하지 않고 버튼 눌렀을 때 제어
+			if (id == '' || pwd == '' || pwdcon == '' || lname == '' || fname == '' ||
+				dob == ''|| gender == '성별') {
+				if (id == '') {
+					$('#sid').text('아이디를 입력해주세요.');
+				}else {
+					$('#sid').text('');
+				};
+				if (pwd == '') {
+					$('#spwd').text('비밀번호를 입력해주세요.');
+				}else {
+					$('#spwd').text('');
+				};
+				if (pwdcon == '') {
+					$('#spwdcon').text('비밀번호를 입력해주세요.');
+				}else {
+					$('#spwdcon').text('');
+				};
+				if (lname == '' || fname == '') {
+					$('#sname').text('이름을 입력해주세요.');
+				}else {
+					$('#sname').text('');
+				};
+				if (dob == '') {
+					$('#sdob').text('생년월일을 입력해주세요.');
+				}else {
+					$('#sdob').text('');
+				};
+				if (gender == '성별') {
+					$('#sgender').text('성별을 선택해주세요.');
+				}else {
+					$('#sgender').text('');
+				};
+				return;
+			}
+			
+			$('#registration_form').attr({			
+				'action':'register',
+				'method':'post'
+			});
+			$('#registration_form').submit();
+		});
+	});
+</script>
+
+<h1>JQ04 Main</h1>
+<div class="container">
+	<h2>회원가입</h2>
+	<form id="registration_form">
+		<div class="form-group">
+			<label for="id">아이디:</label><span id="sid"></span>
+			<input type="text" class="form-control" id="id" placeholder="아이디 입력" name="id">
+		</div>
+		<div class="form-group">
+			<label for="pwd">비밀번호:</label><span id="spwd"></span>
+			<input type="password" class="form-control" id="pwd" placeholder="비밀번호 입력" name="pwd">
+		</div>
+		<div class="form-group">
+			<label for="pwd">비밀번호 확인:</label><span id="spwdcon"></span>
+			<input type="password" class="form-control" id="pwdcon" placeholder="비밀번호 입력" name="pwdcon">
+		</div>
+		<div class="form-group">
+			<label for="name">이름:</label><span id="sname"></span><br>
+			<input type="text" class="form-control" id="lname" placeholder="성" name="lname">
+			<input type="text" class="form-control" id="fname" placeholder="이름" name="fname">
+		</div>
+		<div class="form-group">
+			<label for="dob">생년월일:</label><span id="sdob"></span><br>
+			<input type="date" class="form-control" id="dob" name="dob" min="1900-01-01">
+		</div>
+		<div class="form-group">
+			<label for="sel1">성별:</label><span id="sgender"></span>
+			<select class="form-control" id="gender" name="gender">
+				<option>성별</option>
+				<option>남자</option>
+				<option>여자</option>
+				<option>기타</option>
+			</select>
+		</div>
+			<div class="form-group">
+				<label for="email">복구 이메일(선택):</label><span id="semail"></span>
+				<input type="email" class="form-control" id="email" placeholder="선택" name="email">
+			</div>
+	</form>
+	<button>회원가입</button>
+</div>

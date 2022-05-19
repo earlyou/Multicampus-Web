@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+<style>
+	#hh2{
+		background-color: black;
+	}
+</style>
+<script>
+	function h2(){	/*교재에 나오는 .getElementById는 구닥다리 함수*/
+		alert('Alert .........');
+		var h2 = document.querySelector('#hh2');	/*h2 변수에 <h2>를 가져온다.*/
+		h2.innerHTML = 'replace text';		/*보통 html에서는 ""를 쓰고, script에서는 ''를 쓴다.*/
+	};
+	
+	window.onload = function(){
+		var h3 = document.querySelector('#hh3');
+		var i = 10;
+		var j = 20;
+		var result = i * j;
+		console.log("i * j = "+result);
+		h3.innerHTML = 'replace text 3' + result;
+	};
+</script>
+
+<h1>JS01 Main</h1>
+<button onclick="h2();">Click</button>	<!-- 클릭을 하면 h2() 함수 실행 -->
+<h2 id="hh2">Header2</h2>		<!-- 여기서 이벤트 발생 -->
+<h3 id="hh3">Header3</h3>
