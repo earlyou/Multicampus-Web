@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+
+<script>
+$(document).ready(function(){
+	$('#box').css({
+		'width':'100px',
+		'height':'100px',
+		'background':'red'
+	}).animate({
+		'width':'500px',	// 너비가 100 -> 500으로 늘어남
+		'opacity':'0.6'		// 투명도 변화
+	},500);
+});
+</script>
+
+<h1>JQ10 Main</h1>
+
+<div id="box"></div>

@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+
+<script>
+	window.onload = function(){		// 만약 <script>가 html 밑에 있으면 window.onload가 필요 없다.
+		var c1 = document.querySelector('#c1');
+		var c2 = document.querySelector('#c2');
+		var c3 = document.querySelector('#c3');
+		var h1 = document.querySelector('h1');
+		
+		h1.onclick = function(){	// 글자를 눌러서 이벤트 발생도 가능
+			var c = prompt('숫자를 입력하세요?',0);
+			this.innerHTML = c;		// this는 자기 자신을 의미
+		};
+		c1.addEventListener('click',function(){	// click이 일어나면 함수 발생
+			h1.innerHTML = 'Clicked C1';
+		});
+		c2.onclick = function(){	// 버튼에 직접 onclick을 넣지 않고 자바스크립트에 onclick 가능
+			var c = confirm('회원가입 하시겠습니까?');
+			if (c == true) {
+				location.href='/';
+			}
+		};
+		c3.onclick = function(){
+			//alert('c3');
+			var c = confirm('네이버로 가시겠습니까?');
+			if (c == true) {
+				location.href='http://www.naver.com';	// JavaScript에서 특정 url로 이동시키는 명령어
+			}
+		};
+	};
+</script>
+
+<h1>JS09 Main</h1>
+<button id="c1">CLick1</button>
+<button id="c2">CLick2</button>
+<h2><a id = "c3" href="#">Click</a></h2>

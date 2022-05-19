@@ -1,0 +1,55 @@
+<meta charset="UTF-8">
+<style>
+	#result{
+		width: 300px;
+		border: 2px solid red;
+	}
+</style>
+<script>
+function display(d){		// getdata(){}; 안에 정의해도 되지만, 모듈화를 위해 따로 정의
+	var txt = '';
+	// jQuery의 for문 대체
+	$(d).each(function(index,item){		//	배열을 각각 하나씩 돌리면서 함수 호출
+		txt += '<h3>';
+		txt += item.id+' '+item.name+' '+item.age;
+		txt += '</h3>';
+	});	
+	/*
+	for(var i in d) {	// i번째, d배열
+		txt += '<h3>'
+		txt += d[i].id+' '+d[i].name+' '+d[i].age;
+		txt += '</h3>'
+	};
+	*/
+	$('#result').html(txt);		// div 영역에 JSON을 html형식으로 보낸다.
+};
+
+function getdata(){		// getdata()함수 선언
+	var data = [		// 배열 안에 객체(JSON)
+		{id:'id01',name:'lee',age:10},
+		{id:'id02',name:'kim',age:20},
+		{id:'id03',name:'han',age:30},
+		{id:'id04',name:'soo',age:40},
+		{id:'id05',name:'koo',age:50}
+	];
+	display(data);
+};
+
+$(document).ready(function(){	// document가 준비되면 함수를 실행한다.
+	$('#getdata').click(function(){	// 버튼 클릭하면 함수 실행
+		getdata();		// 나중에는 이걸 서버에 요청할 것임
+	});
+	$('#show').click(function(){	// show 버튼 누르면 #result 영역 표시
+		$('#result').show()		// fadeIn, fadeOut, slideDown, slideUp, slideToggle
+	});
+	$('#hide').click(function(){	// hide 버튼 누르면 #result 영역 숨기기
+		$('#result').hide()
+	});
+});
+</script>
+<h1>JQ05 Main</h1>
+<button id="getdata">GET DATA</button>	<!-- 버튼을 누르면 JSON 데이터를 div에 보인다. -->
+<button id="show">Show</button>
+<button id="hide">Hide</button>
+
+<div id="result"></div>

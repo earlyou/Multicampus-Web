@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+<script>
+	function calc(){
+		var txt = document.querySelector('#data').value;	// 입력된 값을 txt로 가져오는 방법
+		//alert(txt);
+		if(txt == '' || txt == null){	// txt가 비어있거나, 아무것도 적혀있지 않으면
+			document.querySelector('#result').innerHTML = 'Bye';
+			return;						// 함수를 종료한다.
+		};
+		// '1+3'
+		var result = eval(txt);		// eval: String값을 JavaScript로 실행시키는 역할, 계산을 해준다.
+		if(!isFinite(result)){		// result가 infinity라면
+			result = 'Input Error ...';		// result에 메세지 입히기
+		};
+		document.querySelector('#result').innerHTML = result;
+		document.querySelector('#data').value = '';		// 계산 후 계산식 없애준다.
+	};
+</script>
+
+<h1>JS06 Main</h1>
+<input type="text" id="data">
+<button onclick="calc();">Calculate</button>
+<h3 id="result"></h3>

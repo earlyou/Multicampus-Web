@@ -1,0 +1,12 @@
+<meta charset="UTF-8">
+<script>
+$(document).ready(function(){
+	$('#n1').keydown(function(){	// keyup은 키보드에 손을 똇을 때 작동, down은 누를 때 작동ㅇ
+		if($(this).val().length > 6){	// n1이 7자리 이상이면
+			$('#n2').focus();	// n2로 포커스를 옮긴다.
+		}
+	});
+});
+</script>
+<h1>JQ11 Main</h1>
+<input type="number" id="n1">-<input type="number" id="n2">
