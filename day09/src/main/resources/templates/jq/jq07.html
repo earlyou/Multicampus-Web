@@ -1,0 +1,91 @@
+<meta charset="UTF-8">
+<script>
+$(document).ready(function(){
+	$('#name_help').hide();
+	$('#pwd_help').hide();
+	// 강사님이 만드신 코드, 키보드를 누르는 순간 이벤트
+	$('#name').keyup(function(){		// key(키보드)를 눌렀다가 떼는 순간 이벤트 발생
+		$('#name_help').hide();
+	});
+	$('#pwd').keyup(function(){
+		$('#pwd_help').hide();
+	});
+	/* 내가 만든 코드, blur가 일어날때 이벤트
+	$('input[name="name"]').blur(function(){
+		var txt = $(this).val()
+		if(txt != ''){
+			$('#name_help').hide();
+		};
+	});
+	$('input[name="pwd"]').blur(function(){
+		var txt = $(this).val()
+		if(txt != ''){
+			$('#pwd_help').hide();
+		};
+	});
+	*/
+	$('#register_bt').click(function(){
+		
+		var name = $('#name').val();	// input에 있는 모든 내용을 가져오기 위해 val 사용
+		var pwd = $('#pwd').val();
+		
+		if(name == '' || pwd == ''){
+			if(pwd == ''){
+				$('#pwd_help').show();	// name이 null이면 텍스트 표시
+				$('#pwd').focus();		// focus도 이동
+			};
+			if(name == ''){
+				$('#name_help').show();	// name이 null이면 텍스트 표시
+				$('#name').focus();		// focus도 이동
+			};
+			return;
+		};
+		
+		$('#register_form').attr({		// 작동안됨
+			'action':'registerimpl',
+			'method':'get'
+		});
+		$('#register_form').submit();	// register_form을 서버로 전송하겠다.
+	});
+});
+</script>
+
+<div class="container col-sm-6">		<!-- bootstrap css를 쓰기 위해 class 지정 -->
+	<h1>Register</h1>
+	<form id="register_form">
+	<div class="form-group">
+		<label for="name">Name:</label>	<!-- 서버 전송을 위해서는 name, value 무조건 있어야 한다. -->
+		<input type="text" name="name" class="form-control" id="name" placeholder="Input Name">
+		<span id="name_help" class="help-block">This is Mandatory Field...</span>
+	</div>
+	<div class="form-group">
+		<label for="pwd">Password:</label>
+		<input type="password" name="pwd" class="form-control" id="pwd" placeholder="Input Password">
+		<span id="pwd_help" class="help-block">This is Mandatory Field...</span>
+	</div>
+	<div class="form-group">	<!-- 체크박스는 name, value가 필요하다. name은 다 같게 설정 -->
+		<label class="checkbox-inline"><input type="checkbox" name="ch" value="op1">Option 1</label>
+		<label class="checkbox-inline"><input type="checkbox" name="ch" value="op2">Option 2</label>
+		<label class="checkbox-inline"><input type="checkbox" name="ch" value="op3">Option 3</label>
+	</div>
+	<div class="radio">		<!-- name, value가 필요하다. -->
+		<label><input type="radio" name="optradio" value="op1" checked>Option 1</label>
+	</div>
+	<div class="radio">
+		<label><input type="radio" name="optradio" value="op2">Option 2</label>
+	</div>
+	<div class="radio disabled">	<!-- disable도 가능 -->
+		<label><input type="radio" name="optradio" value="op3">Option 3</label>
+	</div>
+	<div class="form-group">
+		<label for="sel1">Select list:</label>	<!-- select도 name필요. value도 반드시 필요 -->
+		<select class="form-control" id="sel1" name="sel">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select>
+	</div>
+	<button id="register_bt" type="button" class="btn btn-success">Register</button>
+	</form>
+</div>

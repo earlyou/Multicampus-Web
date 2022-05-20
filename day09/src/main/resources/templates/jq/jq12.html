@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+<script>
+// p.416
+$(document).ready(function(){
+	var imgs = ['img/1245.png','img/270014.png','img/2991148.png'];	// 사진을 배열에 담기
+	var cnt = 0;
+	setInterval(function(){			// 1초에 한 번씩 함수 호출
+		$('#image').attr('src',imgs[cnt % imgs.length]);
+		$('h1').text(cnt);
+		cnt++;
+	}, 1000);
+});
+</script>
+
+<h1>JQ12 Main</h1>
+<img id="image">

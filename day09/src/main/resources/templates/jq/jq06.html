@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+
+<script>
+$(document).ready(function(){
+	var txt = $('h1').text();		// <h1>의 text를 txt로 가져온다.
+	txt += ':New';
+	$('h1').text(txt);	// <h1>에 txt를 text형식으로 넣는다.
+	
+	$('h2 > a').attr('href','http://www.naver.com');	// attribution을 수정(속성 수정)
+});
+</script>
+
+<h1>JQ06 Main</h1>
+
+<h1>Header1</h1>
+<h2><a href="#">Click</a></h2>
+
+<form>
+	
+</form>
