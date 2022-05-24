@@ -1,0 +1,67 @@
+<meta charset="UTF-8">
+<style>
+	button{
+		width: 40px;
+		height: 40px;
+		margin-right: 30px;
+	}
+	img{
+		border: 1px solid black;
+		width: 262px;
+		height: 262px;
+	}
+</style>
+<script>
+$(document).ready(function(){
+	var imgs = ['img/chrome.png','img/contacts.png','img/drive.png',
+				'img/duo.png','img/earth.png','img/map.png','img/meet.png',
+				'img/plus.png','img/translate.png'];
+	var cnt = 0;
+	var play = null;
+	$('#prev').click(function(){
+		cnt--;
+		if (cnt < 0) {
+			cnt = 8;
+		};
+		$('#cnt').text(cnt);
+		$('#image').attr('src',imgs[cnt]);
+	});
+	$('#play').click(function(){
+		const play = setInterval(function(){
+			cnt++;
+			if (cnt > 8) {
+				cnt = 0;
+			};
+			$('#cnt').text(cnt);
+			$('#image').attr('src',imgs[cnt]);
+		}, 1000);
+		$('#pause').click(function(){
+			clearInterval(play);
+		});
+	});
+
+	$('#next').click(function(){
+		cnt++;
+		if (cnt > 8) {
+			cnt = 0;
+		};
+		$('#cnt').text(cnt);
+		$('#image').attr('src',imgs[cnt]);
+	});
+
+});
+</script>
+
+<h1>JQ15 Main</h1>
+<div class="container col-sm-6">
+	<div class="form-group">
+		<button id="prev" class="glyphicon glyphicon-arrow-left"></button>
+		<button id="play" class="glyphicon glyphicon-play"></button>
+		<button id="pause" class="glyphicon glyphicon-pause"></button>
+		<button id="next" class="glyphicon glyphicon-arrow-right"></button>
+	</div>
+	<div class="form-group">
+		<img id="image">
+		<h4 id="cnt"></h4>
+	</div>
+</div>

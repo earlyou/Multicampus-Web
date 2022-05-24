@@ -1,0 +1,48 @@
+<meta charset="UTF-8">
+<style>
+	#result{
+		width: 300px;
+		border: 2px solid red;
+	}
+	#result > table{
+		width: 200px;
+		border: 2px solid black;
+	}/*위 아래 두 방법 다 쓸 수 있다.*/
+	#tb01 > th, td{
+		all: unset;				
+		width: 200px;
+		border: 2px solid black;
+	}
+
+</style>
+<script>
+	function getdata(){
+		// JSON
+		var a = [		// 배열 안에 객체 넣기
+			{id:'id01',name:'lee',age:10},
+			{id:'id02',name:'kim',age:20},
+			{id:'id03',name:'han',age:30},
+			{id:'id04',name:'soo',age:40},
+			{id:'id05',name:'koo',age:50}
+		];
+		var txt = '';
+		txt += '<table id="tb01">';
+		txt += '<thead>';
+		txt += '<tr><th>ID</th><th>NAME</th><th>AGE</th></tr>'
+		txt += '</thead>';
+		txt += '<tbody>';
+		for(var i in a){
+			txt += '<tr>';
+			txt += '<td>'+a[i].id+'</td>';
+			txt += '<td>'+a[i].name+'</td>';
+			txt += '<td>'+a[i].age+'</td>';
+			txt += '</tr>'
+		};
+		txt += '</tbody>';
+		txt += '</table>';
+		document.querySelector('#result').innerHTML = txt;
+	};
+</script>
+<h1>JS04 Main</h1>
+<h2><a href="#" onclick="getdata();">Click</a></h2>
+<div id="result"></div>

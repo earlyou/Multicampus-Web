@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+
+<script>	// 작동 안함
+	$(document).ready(function(){	// $는 jQuery라는 뜻, document는 하나의 변수이기 때문에 ''안씀
+		$('h1').css('color','red');		// $()가 주어
+		$('#hh1').html('<a href="#">Click</a>');		// html() = innerHTML
+		var txt = $('h1').eq(0).text();		// h1의 0번째 텍스트를 가져온다. 넣을때와 뺄 때가 같다
+		$('h1').eq(1).txt(txt);			// txt를 h1의 1번째에 넣자
+		$('h1 > a').click(function(){		// #hh2를 클릭하면 함수 발생
+			alert('a');		// 자기 자신(#hh1)의 텍스트를 변경해라
+		});
+	});
+</script>
+
+<h1>JQ01 Main</h1>
+
+<h1>Header1</h1>
+<h1 id="hh1">Header2</h1>

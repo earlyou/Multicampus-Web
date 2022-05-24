@@ -1,0 +1,253 @@
+<meta charset="UTF-8">
+<style>
+	#id,#pwd,#pwdcon,#gender,#email{
+		width: 300px;
+	}
+	#name{
+		width: 300px;
+		display: inline-block;
+	}
+	#dob{
+		width: 300px;
+		display: inline-block;
+	}
+	span{
+		font-size: 10px;
+		margin-left: 10px;
+		color: red;
+	}
+	.correct{
+		color: blue;
+	}
+</style>
+<script>
+function checkid(id){
+	$.ajax({
+		url:'checkid',
+		data:{'id':id},
+		success:function(data){
+			if (data == '1') {
+				$('#sid').addClass('correct');
+				$('#sid').text('사용할 수 있는 아이디입니다.');
+			}else {
+				$('#sid').removeClass('correct');
+				$('#sid').text('사용할 수 없는 아이디입니다.');
+			}
+		}
+	});
+}
+$(document).ready(function(){
+	
+	$('#id').keyup(function(){
+		var id = $('#id').val();
+		if (id.length < 5) {
+			$('#sid').removeClass('correct');
+			$('#sid').text('아이디는 5자리 이상입니다.');
+			return;
+		}
+		checkid(id);
+	});
+	$('#id').blur(function(){
+		var id = $('#id').val();
+		if (id.length == 0) {
+			$('#sid').removeClass('correct');
+			$('#sid').text('아이디를 입력해주세요.');
+		}
+	});
+	$('#pwd').keyup(function(){
+		var pwd = $('#pwd').val();
+		if (pwd.length < 8) {
+			$('#spwd').removeClass('correct');
+			$('#spwd').text('비밀번호는 8자리 이상입니다.');
+		}else {
+			$('#spwd').text('');
+		}
+	});
+	$('#pwd').blur(function(){
+		var pwd = $('#pwd').val();
+		if (pwd.length == 0) {
+			$('#spwd').removeClass('correct');
+			$('#spwd').text('비밀번호를 입력해주세요.');
+		}
+	});
+	$('#pwdcon').keyup(function(){
+		var pwdcon = $('#pwdcon').val();
+		if (pwdcon != $('#pwd').val()) {
+			$('#spwdcon').removeClass('correct');
+			$('#spwdcon').text('비밀번호가 일치하지 않습니다.');
+		}else {
+			$('#spwdcon').addClass('correct');
+			$('#spwdcon').text('비밀번호가 일치합니다.');
+		}
+	});
+	$('#pwdcon').blur(function(){
+		var pwd = $('#pwdcon').val();
+		if (pwd.length == 0) {
+			$('#spwdcon').removeClass('correct');
+			$('#spwdcon').text('비밀번호를 입력해주세요.');
+		};
+	});
+	$('#name').keyup(function(){
+		var name = $('#name').val();
+		if (name.length < 2) {
+			$('#sname').removeClass('correct');
+			$('#sname').text('이름을 입력해주세요.');
+		}else {
+			$('#sname').text('');
+		}
+	});
+	$('#name').blur(function(){
+		var name = $('#name').val();
+		if (name == '') {
+			$('#sname').removeClass('correct');
+			$('#sname').text('이름을 입력해주세요.');
+		}else {
+			$('#sname').text('');
+		}
+	});
+	$('#dob').blur(function(){
+		var dob = $('#dob').val();
+		if (dob == '') {
+			$('#sdob').removeClass('correct');
+			$('#sdob').text('생년월일을 입력해주세요.');
+		}else {
+			$('#sdob').text('');
+		}
+	});
+	$('#gender').blur(function(){
+		var gender = $('#gender').val();
+		if (gender == '성별') {
+			$('#sgender').removeClass('correct');
+			$('#sgender').text('성별을 선택해주세요.');
+		}else {
+			$('#sgender').text('');
+		}
+	});
+	
+	
+	$('button').click(function(){
+		var id = $('#id').val();
+		var pwd = $('#pwd').val();
+		var pwdcon = $('#pwdcon').val();
+		var name = $('#name').val();
+		var dob = $('#dob').val();
+		var gender = $('#gender').val();
+		var email = $('#email').val();
+		var meal = $('input:checkbox:checked').val();
+		if (id == ''||pwd == ''||pwdcon == ''||name == ''||
+			dob == ''||gender == '성별') {
+			if (gender == '성별') {
+				$('#sgender').removeClass('correct');
+				$('#sgender').text('성별을 선택해주세요.');
+				$('#gender').focus();
+			}else {
+				$('#sgender').addClass('correct');
+			};
+			if (dob == '') {
+				$('#sdob').removeClass('correct');
+				$('#sdob').text('생년월을 입력해주세요.');
+				$('#dob').focus();
+			}else {
+				$('#sdob').addClass('correct');
+			};
+			if (name == '') {
+				$('#sname').removeClass('correct');
+				$('#sname').text('이름을 입력해주세요.');
+				$('#name').focus();
+			}else {
+				$('#sname').addClass('correct');
+			};
+			if (pwdcon != pwd) {
+				$('#spwdcon').removeClass('correct');
+				$('#spwdcon').text('비밀번호가 일치하지 않습니다.');
+				$('#pwdcon').focus();
+			} else {
+				$('#spwdcon').addClass('correct');
+			}
+			if (pwdcon == '') {
+				$('#spwdcon').removeClass('correct');
+				$('#spwdcon').text('비밀번호를 확인해주세요.');
+				$('#pwdcon').focus();
+			};
+			if (pwd == '') {
+				$('#spwd').removeClass('correct');
+				$('#spwd').text('비밀번호를 입력해주세요.');
+				$('#pwd').focus();
+			}else {
+				$('#spwd').addClass('correct');
+			};
+			if (id == '') {
+				$('#sid').removeClass('correct');
+				$('#sid').text('아이디를 입력해주세요.');
+				$('#id').focus();
+			}else {
+				$('#sid').addClass('correct');
+			};
+			return;
+		};
+		
+		$('#registration_form').attr({
+			'action':'register_aj03',
+			'method':'post'
+		});
+		$('#registration_form').submit();
+	});
+	
+});
+</script>
+<h1>AJ04 Main</h1>
+<!-- 
+- 회원가입 폼을 만든다.
+- checkbox 제외
+- select, textarea 등
+- AJAX 이용해서 ID체크
+- 각 필드 validation
+- 서버로 Form 데이터 전송
+- 완료 화면 출력
+-->
+
+<div class="container">
+	<h2>회원가입</h2>
+	<form id="registration_form">
+		<div class="form-group">
+			<label for="id">아이디:</label><span id="sid"></span>
+			<input type="text" class="form-control" id="id" placeholder="아이디 입력" name="id">
+		</div>
+		<div class="form-group">
+			<label for="pwd">비밀번호:</label><span id="spwd"></span>
+			<input type="password" class="form-control" id="pwd" placeholder="비밀번호 입력" name="pwd">
+		</div>
+		<div class="form-group">
+			<label for="pwd">비밀번호 확인:</label><span id="spwdcon"></span>
+			<input type="password" class="form-control" id="pwdcon" placeholder="비밀번호 입력" name="pwdcon">
+		</div>
+		<div class="form-group">
+			<label for="name">이름:</label><span id="sname"></span><br>
+			<input type="text" class="form-control" id="name" placeholder="이름" name="name">
+		</div>
+		<div class="form-group">
+			<label for="dob">생년월일:</label><span id="sdob"></span><br>
+			<input type="date" class="form-control" id="dob" name="dob" min="1900-01-01">
+		</div>
+		<div class="form-group">
+			<label for="gender">성별:</label><span id="sgender"></span>
+			<select class="form-control" id="gender" name="gender">
+				<option>성별</option>
+				<option value="M">남자</option>
+				<option value="F">여자</option>
+				<option value="E">기타</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="email">복구 이메일(선택):</label><span id="semail"></span>
+			<input type="email" class="form-control" id="email" placeholder="선택" name="email">
+		</div>
+		<div class="form-group">
+			<label for="checkbox">하루에 주로 먹는 식사:</label><br>
+			<label class="checkbox-inline"><input type="checkbox" id="breakfast" value="breakfast" name="check">Breakfast</label>
+			<label class="checkbox-inline"><input type="checkbox" id="lunch" value="lunch" name="check">Lunch</label>
+			<label class="checkbox-inline"><input type="checkbox" id="dinner" value="dinner" name="check">Dinner</label>
+		</div>
+	</form>
+	<button>회원가입</button>
+</div>
