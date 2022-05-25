@@ -1,0 +1,80 @@
+<meta charset="UTF-8">
+<style>
+	#result{
+		border: 2px solid red;
+	}
+	.myclass{
+		color: red;
+		background: black;
+	}
+</style>
+<script>
+$(document).ready(function(){
+	/*
+	$('h1').css({
+		'color':'red',
+		'background':'black'
+		});
+	*/
+	// Get and Set CSS Classes
+	$('h1').hover(function(){	// hover는 함수 2개 넣기 가능, 마우스 위에 있을때, 없을 때
+		$(this).addClass('myclass');
+	},function(){
+		$(this).removeClass('myclass');
+	});
+	
+	// Traversing Filtering
+/*	$('button').addClass('myclass');
+	$('button').not($(this)).removeClass('myclass');*/
+	
+	// HTML Add/Remove Elements/Content
+	var i = 1;
+	$('#append').click(function(){	// div영역 뒤에 순서대로 입력
+		$('button').addClass('myclass');
+		$('#result').append('<h4>Add Element'+i+'</h4>');
+		i++;
+		$('button').not($(this)).removeClass('myclass');
+	});
+	$('#prepend').click(function(){	// div영역 맨 앞에 입력
+		$('button').addClass('myclass');
+		$('#result').prepend('<h4>Add Element'+i+'</h4>');
+		i++;
+		$('button').not($(this)).removeClass('myclass');
+	});
+	$('#after').click(function(){	// div영역 밖 뒤에 입력
+		$('button').addClass('myclass');
+		$('#result').after('<h4>Add Element'+i+'</h4>');
+		i++;
+		$('button').not($(this)).removeClass('myclass');
+	});
+	$('#before').click(function(){	// div 영역 밖 앞에 입력
+		$('button').addClass('myclass');
+		$('#result').before('<h4>Add Element'+i+'</h4>');
+		i++;
+		$('button').not($(this)).removeClass('myclass');
+	});
+	$('#remove').click(function(){	// div 영역 자체를 삭제
+		$('button').addClass('myclass');
+		$('#result').remove();
+		$('h4').remove();	// 특정 영역만 삭제 가능
+		$('button').not($(this)).removeClass('myclass');
+	});
+	$('#empty').click(function(){	// div영역은 살리고 내용만 삭제
+		$('button').addClass('myclass');
+		$('#result').empty();
+		$('h4').empty();	// 특정 영역 내용만 삭제 가능
+		$('button').not($(this)).removeClass('myclass');
+	});
+});
+</script>
+
+<h1>JQ09 Main</h1>
+<button id="append">append</button>
+<button id="prepend">prepend</button>
+<button id="after">after</button>
+<button id="before">before</button>
+<button id="remove">remove</button>
+<button id="empty">empty</button>
+<hr>
+<div id="result">
+</div>

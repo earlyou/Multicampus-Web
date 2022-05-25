@@ -1,0 +1,52 @@
+<meta charset="UTF-8">
+<script>
+	// 기본 함수
+	function a(n){
+		var result = n*1000;
+		return result;
+	};
+	var b = function(n,m){
+		var result = n*m;
+		return result;
+	};
+	var result = b(100,222);	// 함수 실행
+	//alert(result);
+	
+	// JavaScript만의 특별한 함수 선언 기법
+	// 함수를 리턴하는 함수
+	function c(){
+		return function(){
+			return 100;
+		};
+	};
+	var r1 = c();	// 함수 실행, r1의 type은 function
+	var result2 = r1();
+	//alert(result2);
+	
+	// 함수에 함수를 연산하기, 마치 합성 함수처럼
+	function d(f){	// 이때 f는 함수이다
+		var result = f() * 2;
+		return result;
+	};
+	var dd = function(){
+		return 100;
+	};
+	var result3 = d(dd);	// 마치 합성함수처럼
+	//alert(result3);
+	
+	// 주기적으로 함수를 실행하기
+	function display(){
+		var tf = function(){		// 함수 안에 함수를 호출할 수 있다.
+			var d = new Date();		// Date: JavaScript가 제공하는 시간 객체
+			var result = d.getHours()+ ' ' +d.getMinutes()+ ' ' +d.getSeconds();
+			document.querySelector('#time').innerHTML = result;
+		};
+		setInterval(tf,1000);		// 1000ms = 1s, 1초에 한 번씩 tf 함수를 호출해라
+	};
+	window.onload = function(){		// 화면이 onload되면 display() 함수가 실행된다.
+		display();
+	};
+</script>
+
+<h1>JS05 Main</h1>
+<h2 id="time"></h2>

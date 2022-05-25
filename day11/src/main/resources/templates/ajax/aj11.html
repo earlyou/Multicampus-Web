@@ -1,0 +1,100 @@
+<meta charset="UTF-8">
+<style>
+	#map{
+		width: 500px;
+		height: 400px;
+		border: 2px solid red;
+	}
+</style>
+<script>
+var map = null;
+
+function displaymarker(pos){	// json 객체를 입력받아 마커 만들기
+	$(pos).each(function(index,item){	// item은 하나의 객체를 의미
+		var marker = new kakao.maps.Marker({
+			map:map,
+			position: new kakao.maps.LatLng(item.lat,item.lng)
+		});
+		var infowindow = new kakao.maps.InfoWindow({
+			content: item.contents
+		});
+		// 마커에 마우스오버 이벤트를 등록합니다
+		kakao.maps.event.addListener(marker, 'mouseover', function() {
+	  		// 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+			infowindow.open(map, marker);// infowindow는 마커 위에 표시되기 때문에 position은 필요 없다.
+		});
+		// 마커에 마우스아웃 이벤트를 등록합니다
+		kakao.maps.event.addListener(marker, 'mouseout', function() {
+		    // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
+		    infowindow.close();
+		});
+		// 마커에 클릭 이벤트를 등록합니다
+		kakao.maps.event.addListener(marker, 'click', function() {
+		    // 마커에 클릭 이벤트가 발생하면 인포윈도우를 제거합니다
+		    location.href=item.target;
+		});
+	});
+};
+
+function getmarkers(loc){	// 좌표를 json형태료 만들어서 ajax로 요청
+	$.ajax({
+		url: 'getmarkers',
+		data: {'loc':loc},	// loc라는 이름으로 데이터를 보낼 것이다.
+		success: function(data){	
+			displaymarker(data);
+		}
+	});
+};
+
+function gomap(loc){	// 지도 이동 함수
+	var latlnt = null;
+	if (loc == 's') {
+		latlng = new kakao.maps.LatLng(37.55041692365908, 126.91037178013711);
+		getmarkers('s');
+	} else if (loc == 'b') {
+		latlng = new kakao.maps.LatLng(35.17642453774257, 129.16669784099807);
+		getmarkers('b');
+	} else if (loc == 'g') {
+		latlng = new kakao.maps.LatLng(35.16173425533525, 126.88758871719189);
+		getmarkers('g');
+	}
+	map.panTo(latlng);
+};
+/*
+function gomap(lat,lng){
+	map.panTo(new kakao.maps.LatLng(lat,lng));
+};
+*/
+function displaymap(){
+	/*지도 생성*/
+	var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
+	var mapOption = { 
+		center: new kakao.maps.LatLng(37.5032909, 127.0498323), // 지도의 중심좌표(멀티캠퍼스)
+		level: 8 // 지도의 확대 레벨
+	   };
+	map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+};
+
+// #서울 37.55041692365908, 126.91037178013711
+// #부산 35.17642453774257, 129.16669784099807
+// #광주 35.16173425533525, 126.88758871719189
+$(document).ready(function(){	/* 버튼을 누르면 한번에 여러 마크를 만들고 이벤트 만들기*/
+	displaymap();
+	// 버튼 누르면 좌표로 이동, Content도 표시
+	$('#s').click(function(){
+		gomap('s');
+	});
+	$('#b').click(function(){
+		gomap('b');
+	});
+	$('#g').click(function(){
+		gomap('g');
+	});
+});
+</script>
+
+<h1>AJ11 Main</h1>
+<button id="s">Seoul</button>
+<button id="b">Busan</button>
+<button id="g">Gwangju</button>
+<div id="map"></div>

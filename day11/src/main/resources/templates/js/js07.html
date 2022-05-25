@@ -1,0 +1,61 @@
+<meta charset="UTF-8">
+<script>
+	function calc(n){
+		if (n == '=') {
+			var data = document.querySelector('#txt').value;
+			var result = eval(data);
+			document.querySelector('#txt').value = result;
+			return;
+		}
+		var data = document.querySelector('#txt').value;	// 입력창에 있는 값을 data에 넣기
+		data += n;
+		document.querySelector('#txt').value = data;		// 입력창에 data 넣기
+	};
+</script>
+<style>
+	#cal > tbody > tr > td > button{
+		width: 50px;
+		height: 50px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+	#txt{
+		width: 215px;
+		margin-bottom: 10px;
+	}
+</style>
+<h1>JS07 Main</h1>
+<h2>Calculator</h2>
+<div>
+	<table id="cal">
+		<tbody>
+			<tr>
+				<td colspan="4"><input type="text" id="txt"></td>	<!-- 5개의 column을 하나로 묶는다. -->
+			</tr>
+			<tr>
+				<td><button onclick="calc('1')">1</button></td>
+				<td><button onclick="calc('2')">2</button></td>
+				<td><button onclick="calc('3')">3</button></td>
+				<td><button onclick="calc('+')">+</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="calc('4')">4</button></td>
+				<td><button onclick="calc('5')">5</button></td>
+				<td><button onclick="calc('6')">6</button></td>
+				<td><button onclick="calc('-')">-</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="calc('7')">7</button></td>
+				<td><button onclick="calc('8')">8</button></td>
+				<td><button onclick="calc('9')">9</button></td>
+				<td><button onclick="calc('*')">×</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="calc('.')">.</button></td>
+				<td><button onclick="calc('0')">0</button></td>
+				<td><button onclick="calc('=')">=</button></td>
+				<td><button onclick="calc('/')">÷</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
