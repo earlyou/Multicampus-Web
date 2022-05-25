@@ -39,7 +39,7 @@ function displaymarker(pos){	// json 객체를 입력받아 마커 만들기
 function getmarkers(loc){	// 좌표를 json형태료 만들어서 ajax로 요청
 	$.ajax({
 		url: 'getmarkers',
-		data: {'loc':loc},	// loc라는 이름으로 데이터를 보낼 것이다.
+		data: {'loc':loc},	// loc라는 이름으로 데이터를 보내고 data를 return 받는다
 		success: function(data){	
 			displaymarker(data);
 		}
