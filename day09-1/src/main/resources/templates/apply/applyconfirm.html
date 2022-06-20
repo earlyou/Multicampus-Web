@@ -1,0 +1,134 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+
+<script>
+$(document).ready(function(){
+	$('#tomain').click(function(){
+		location.href='/';
+	});
+});
+
+</script>
+
+<h1>Application Confirmation</h1>
+<h4><span th:text="${curri}"></span></h4>
+<h4><span th:text="${appname}"></span></h4>
+<h4><span th:text="${gender}"></span></h4>
+<h4><span th:text="${dob}"></span></h4>
+<h4><span th:text="${school}"></span></h4>
+<h4><span th:text="${grade}"></span></h4>
+<h4><span th:text="${clss}"></span></h4>
+<h4><span th:text="${postcode}"></span></h4>
+<h4><span th:text="${roadAddress}"></span></h4>
+<h4><span th:text="${jibunAddress}"></span></h4>
+<h4><span th:text="${detailAddress}"></span></h4>
+<h4><span th:text="${yeartable1}"></span></h4>
+<h4><span th:text="${gname1}"></span></h4>
+<h4><span th:text="${en1}"></span></h4>
+<!-- <h2><span th:text="${giftedarray}"></span></h4>
+<h4><span th:text="${idpic}"></span></h2> -->
+<h4><span th:text="${parname}"></span></h4>
+<h4><span th:text="${rela}"></span></h4>
+<h4><span th:text="${phonenum}"></span></h4>
+<h4><span th:text="${payment}"></span></h4>
+<h4><span th:text="${bank}"></span></h4>
+<h4><span th:text="${payname}"></span></h4>
+<!-- <h4><span th:text="${paypic}"></span></h4> -->
+<h4><span th:text="${id}"></span></h4>
+<h4><span th:text="${pwd}"></span></h4>
+
+<div class="confirm">
+	<table id="info1">
+		<tr>
+			<th class="tblhead">지원 과정</th>
+			<td colspan="4"><span th:text="${curri}"></span></td>
+		</tr>
+	</table>
+</div>
+<div class="confirm">
+	<table id="info2">
+		<tr>
+			<th rowspan="9" class="tblhead">지원자</th>
+			<td class="tblhead">성명</td>
+			<td><span th:text="${appname}"></span></td>
+			<td class="tblhead">성별</td>
+			<td><span th:text="${gender}"></span></td>
+			<td class="tblhead" id="picid" rowspan="5">사진첨부</td>
+		</tr>
+		<tr>
+			<td class="tblhead">생년월일</td>
+			<td colspan="3"><span th:text="${dob}"></span></td>
+		</tr>
+		<tr>
+			<td class="tblhead">소속학교</td>
+			<td colspan="3"><span th:text="${school}"></span></td>
+		</tr>
+		<tr>
+			<td class="tblhead">학교주소</td>
+			<td colspan="3"><span th:text="${roadAddress}"></span>,&#32;<span th:text="${detailAddress}"></span></td>
+		</tr>
+		<tr>
+			<td class="tblhead">전형료면제대상</td>
+			<td colspan="3"></td>
+		</tr>
+		<tr>
+			<td class="tblhead" rowspan="4">영재교육 이수경력</td>
+			<td><span th:text="${yeartable1}"></span></td>
+			<td colspan="2"><span th:text="${gname1}"></span></td>
+			<td><span th:text="${en1}"></span></td>
+		</tr>
+		<tr>
+			<td><span th:text="${yeartable2}"></span></td>
+			<td colspan="2"><span th:text="${gname2}"></span></td>
+			<td><span th:text="${en2}"></span></td>
+		</tr>
+		<tr>
+			<td><span>&#32;</span></td>
+			<td colspan="2"><span></span></td>
+			<td><span>&#32;</span></td>
+		</tr>
+		<tr>
+			<td><span>&#32;</span></td>
+			<td colspan="2"></td>
+			<td><span>&#32;</span></td>
+		</tr>
+	</table>
+</div>
+
+<div class="confirm">
+	<table id="info3">
+		<tr>
+			<th rowspan="2" class="tblhead">보호자</th>
+			<td class="tblhead">성명</td>
+			<td><span th:text="${parname}"></span></td>
+			<td class="tblhead">지원자와의 관계</td>
+			<td><span th:text="${rela}"></span></td>
+		</tr>
+		<tr>
+			<td class="tblhead">휴대전화번호</td>
+			<td colspan="3"><span th:text="${phonenum}"></span></td>
+		</tr>
+	</table>
+</div>
+
+<div class="confirm">
+	<table id="info4">
+		<tr>
+			<th rowspan="3" class="tblhead">전형료</th>
+			<td class="tblhead">납부일시</td>
+			<td colspan="4"><span th:text="${payment}"></span></td>
+		</tr>
+		<tr>
+			<td class="tblhead">납부은행</td>
+			<td colspan="4"><span th:text="${bank}"></span></td>
+		</tr>
+		<tr>
+			<td class="tblhead">입금자명</td>
+			<td colspan="4"><span th:text="${payname}"></span></td>
+		</tr>
+	</table>
+</div>
+<div class="form-print">
+	<button class="btn btn-default" id="tomain">메인으로</button><button class="btn btn-default" id="printall" onclick="window.print()">인쇄하기</button>
+</div>
+</html>

@@ -1,0 +1,873 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<style>
+	span{
+		font-size: 10px;
+		margin-left: 10px;
+		color: red;
+	}
+</style>
+<script>
+$(document).ready(function(){
+	$('#curri').blur(function(){
+		var curri = $(this).val();
+		if (curri == 'null') {
+			$('#scurri').removeClass('correct');
+			$('#scurri').attr('class','validation');
+			$('#scurri').text('지원 과정을 선택해주세요.');
+		}else {
+			$('#scurri').attr('class','glyphicon glyphicon-check');
+			$('#scurri').addClass('correct');
+			$('#scurri').text('');
+		}
+	});
+	$('#curri').focus(function(){
+		var curri = $(this).val();
+		if (curri == 'null') {
+			$('#scurri').removeClass('correct');
+			$('#scurri').attr('class','validation');
+			$('#scurri').text('지원 과정을 선택해주세요.');
+		}else {
+			$('#scurri').attr('class','glyphicon glyphicon-check');
+			$('#scurri').addClass('correct');
+			$('#scurri').text('');
+		}
+	});
+	$('#curri').click(function(){
+		var curri = $(this).val();
+		if (curri == 'null') {
+			$('#scurri').removeClass('correct');
+			$('#scurri').attr('class','validation');
+			$('#scurri').text('지원 과정을 선택해주세요.');
+		}else {
+			$('#scurri').attr('class','glyphicon glyphicon-check');
+			$('#scurri').addClass('correct');
+			$('#scurri').text('');
+		}
+	});
+	$('#curri').keyup(function(){
+		var curri = $(this).val();
+		if (curri == 'null') {
+			$('#scurri').removeClass('correct');
+			$('#scurri').attr('class','validation');
+			$('#scurri').text('지원 과정을 선택해주세요.');
+		}else {
+			$('#scurri').attr('class','glyphicon glyphicon-check');
+			$('#scurri').addClass('correct');
+			$('#scurri').text('');
+		}
+	});
+	$('#appname').blur(function(){
+		var appname = $(this).val();
+		if (appname.length < 2) {
+			$('#sappname').removeClass('correct');
+			$('#sappname').attr('class','validation');
+			$('#sappname').text('지원자 성명을 입력해주세요');
+		} else {
+			$('#sappname').attr('class','glyphicon glyphicon-check');
+			$('#sappname').addClass('correct');
+			$('#sappname').text('');
+		}
+	});
+	$('#appname').keyup(function(){
+		var appname = $(this).val();
+		if (appname.length < 2) {
+			$('#sappname').removeClass('correct');
+			$('#sappname').attr('class','validation');
+			$('#sappname').text('지원자 성명을 입력해주세요');
+		} else {
+			$('#sappname').attr('class','glyphicon glyphicon-check');
+			$('#sappname').addClass('correct');
+			$('#sappname').text('');
+		}
+	});
+	$('#appname').focus(function(){
+		var appname = $(this).val();
+		if (appname.length < 2) {
+			$('#sappname').removeClass('correct');
+			$('#sappname').attr('class','validation');
+			$('#sappname').text('지원자 성명을 입력해주세요');
+		} else {
+			$('#sappname').attr('class','glyphicon glyphicon-check');
+			$('#sappname').addClass('correct');
+			$('#sappname').text('');
+		}
+	});
+	$('#gender').blur(function(){
+		var gender = $(this).val();
+		if (gender == 'null') {
+			$('#sgender').removeClass('correct');
+			$('#sgender').attr('class','validation');
+			$('#sgender').text('성별을 선택해주세요.');
+		}else {
+			$('#sgender').attr('class','glyphicon glyphicon-check');
+			$('#sgender').addClass('correct');
+			$('#sgender').text('');
+		}
+	});
+	$('#gender').focus(function(){
+		var gender = $(this).val();
+		if (gender == 'null') {
+			$('#sgender').removeClass('correct');
+			$('#sgender').attr('class','validation');
+			$('#sgender').text('성별을 선택해주세요.');
+		}else {
+			$('#sgender').attr('class','glyphicon glyphicon-check');
+			$('#sgender').addClass('correct');
+			$('#sgender').text('');
+		}
+	});
+	$('#gender').click(function(){
+		var gender = $(this).val();
+		if (gender == 'null') {
+			$('#sgender').removeClass('correct');
+			$('#sgender').attr('class','validation');
+			$('#sgender').text('성별을 선택해주세요.');
+		}else {
+			$('#sgender').attr('class','glyphicon glyphicon-check');
+			$('#sgender').addClass('correct');
+			$('#sgender').text('');
+		}
+	});
+	$('#gender').keyup(function(){
+		var gender = $(this).val();
+		if (gender == 'null') {
+			$('#sgender').removeClass('correct');
+			$('#sgender').attr('class','validation');
+			$('#sgender').text('성별을 선택해주세요.');
+		}else {
+			$('#sgender').attr('class','glyphicon glyphicon-check');
+			$('#sgender').addClass('correct');
+			$('#sgender').text('');
+		}
+	});
+	$('#dob').blur(function(){
+		var dob = $(this).val();
+		if (dob == '') {
+			$('#sdob').removeClass('correct');
+			$('#sdob').attr('class','validation');
+			$('#sdob').text('생년월일을 입력해주세요.');
+		}else {
+			$('#sdob').attr('class','glyphicon glyphicon-check');
+			$('#sdob').addClass('correct');
+			$('#sdob').text('');
+		}
+	});
+	$('#dob').focus(function(){
+		var dob = $(this).val();
+		if (dob == '') {
+			$('#sdob').removeClass('correct');
+			$('#sdob').attr('class','validation');
+			$('#sdob').text('생년월일을 입력해주세요.');
+		}else {
+			$('#sdob').attr('class','glyphicon glyphicon-check');
+			$('#sdob').addClass('correct');
+			$('#sdob').text('');
+		}
+	});
+	$('#dob').keyup(function(){
+		var dob = $(this).val();
+		if (dob == '') {
+			$('#sdob').removeClass('correct');
+			$('#sdob').attr('class','validation');
+			$('#sdob').text('생년월일을 입력해주세요.');
+		}else {
+			$('#sdob').attr('class','glyphicon glyphicon-check');
+			$('#sdob').addClass('correct');
+			$('#sdob').text('');
+		}
+	});
+	$('#school').keyup(function(){
+		var school = $(this).val();
+		if (school.length < 5) {
+			$('#sschool').removeClass('correct');
+			$('#sschool').attr('class','validation');
+			$('#sschool').text('학교이름을 입력해주세요.');
+		}else {
+			$('#sschool').attr('class','glyphicon glyphicon-check');
+			$('#sschool').addClass('correct');
+			$('#sschool').text('');
+		}
+	});
+	$('#school').blur(function(){
+		var school = $(this).val();
+		if (school.length < 5) {
+			$('#sschool').removeClass('correct');
+			$('#sschool').attr('class','validation');
+			$('#sschool').text('학교이름을 입력해주세요.');
+		}else {
+			$('#sschool').attr('class','glyphicon glyphicon-check');
+			$('#sschool').addClass('correct');
+			$('#sschool').text('');
+		}
+	});
+	$('#school').focus(function(){
+		var school = $(this).val();
+		if (school.length < 5) {
+			$('#sschool').removeClass('correct');
+			$('#sschool').attr('class','validation');
+			$('#sschool').text('학교이름을 입력해주세요.');
+		}else {
+			$('#sschool').attr('class','glyphicon glyphicon-check');
+			$('#sschool').addClass('correct');
+			$('#sschool').text('');
+		}
+	});
+	$('#grade').keyup(function(){
+		var grade = $(this).val();
+		if (grade > 6 || grade == '') {
+			$('#sgrade').removeClass('correct');
+			$('#sgrade').attr('class','validation');
+			$('#sgrade').text('올바른 학년을 입력해주세요.');
+		} else {
+			$('#sgrade').attr('class','glyphicon glyphicon-check');
+			$('#sgrade').addClass('correct');
+			$('#sgrade').text('');
+		}
+	});
+	$('#grade').blur(function(){
+		var grade = $(this).val();
+		if (grade > 6 || grade == '') {
+			$('#sgrade').removeClass('correct');
+			$('#sgrade').attr('class','validation');
+			$('#sgrade').text('올바른 학년을 입력해주세요.');
+		} else {
+			$('#sgrade').attr('class','glyphicon glyphicon-check');
+			$('#sgrade').addClass('correct');
+			$('#sgrade').text('');
+		}
+	});
+	$('#grade').focus(function(){
+		var grade = $(this).val();
+		if (grade > 6 || grade == '') {
+			$('#sgrade').removeClass('correct');
+			$('#sgrade').attr('class','validation');
+			$('#sgrade').text('올바른 학년을 입력해주세요.');
+		} else {
+			$('#sgrade').attr('class','glyphicon glyphicon-check');
+			$('#sgrade').addClass('correct');
+			$('#sgrade').text('');
+		}
+	});
+	$('#clss').keyup(function(){
+		var clss = $(this).val();
+		if (clss == '') {
+			$('#sclss').removeClass('correct');
+			$('#sclss').attr('class','validation');
+			$('#sclss').text('반을 입력해주세요.');
+		} else {
+			$('#sclss').attr('class','glyphicon glyphicon-check');
+			$('#sclss').addClass('correct');
+			$('#sclss').text('');
+		}
+	});
+	$('#clss').blur(function(){
+		var clss = $(this).val();
+		if (clss == '') {
+			$('#sclss').removeClass('correct');
+			$('#sclss').attr('class','validation');
+			$('#sclss').text('반을 입력해주세요.');
+		} else {
+			$('#sclss').attr('class','glyphicon glyphicon-check');
+			$('#sclss').addClass('correct');
+			$('#sclss').text('');
+		}
+	});
+	$('#clss').focus(function(){
+		var clss = $(this).val();
+		if (clss == '') {
+			$('#sclss').removeClass('correct');
+			$('#sclss').attr('class','validation');
+			$('#sclss').text('반을 입력해주세요.');
+		} else {
+			$('#sclss').attr('class','glyphicon glyphicon-check');
+			$('#sclss').addClass('correct');
+			$('#sclss').text('');
+		}
+	});
+	$('#findaddr').focus(function(){
+		if ($('#postcode').val() == '' || $('#detailAddress').val() == '') {
+			$('#saddress').removeClass('correct');
+			$('#saddress').attr('class','validation');
+			$('#saddress').text('학교주소를 입력해주세요.');
+		} else {
+			$('#saddress').attr('class','glyphicon glyphicon-check');
+			$('#saddress').addClass('correct');
+			$('#saddress').text('');
+		}
+	});
+	$('#findaddr').blur(function(){
+		if ($('#postcode').val() == '' || $('#detailAddress').val() == '') {
+			$('#saddress').removeClass('correct');
+			$('#saddress').attr('class','validation');
+			$('#saddress').text('학교주소를 입력해주세요.');
+		} else {
+			$('#saddress').attr('class','glyphicon glyphicon-check');
+			$('#saddress').addClass('correct');
+			$('#saddress').text('');
+		}
+	});
+	$('#idpic').blur(function(){
+		var idpic = $(this).val();
+		if (idpic == '') {
+			$('#sidpic').removeClass('correct');
+			$('#sidpic').attr('class','validation');
+			$('#sidpic').text('지원자 사진을 첨부해주세요.');
+		} else {
+			$('#sidpic').attr('class','glyphicon glyphicon-check');
+			$('#sidpic').addClass('correct');
+			$('#sidpic').text('');
+		}
+	});
+	$('#idpic').focus(function(){
+		var idpic = $(this).val();
+		if (idpic == '') {
+			$('#sidpic').removeClass('correct');
+			$('#sidpic').attr('class','validation');
+			$('#sidpic').text('지원자 사진을 첨부해주세요.');
+		} else {
+			$('#sidpic').attr('class','glyphicon glyphicon-check');
+			$('#sidpic').addClass('correct');
+			$('#sidpic').text('');
+		}
+	});
+	$('#parname').blur(function(){
+		var parname = $(this).val();
+		if (parname.length < 2) {
+			$('#sparname').removeClass('correct');
+			$('#sparname').attr('class','validation');
+			$('#sparname').text('보호자 성명을 입력해주세요');
+		} else {
+			$('#sparname').attr('class','glyphicon glyphicon-check');
+			$('#sparname').addClass('correct');
+			$('#sparname').text('');
+		}
+	});
+	$('#parname').keyup(function(){
+		var parname = $(this).val();
+		if (parname.length < 2) {
+			$('#sparname').removeClass('correct');
+			$('#sparname').attr('class','validation');
+			$('#sparname').text('보호자 성명을 입력해주세요');
+		} else {
+			$('#sparname').attr('class','glyphicon glyphicon-check');
+			$('#sparname').addClass('correct');
+			$('#sparname').text('');
+		}
+	});
+	$('#parname').focus(function(){
+		var parname = $(this).val();
+		if (parname.length < 2) {
+			$('#sparname').removeClass('correct');
+			$('#sparname').attr('class','validation');
+			$('#sparname').text('보호자 성명을 입력해주세요');
+		} else {
+			$('#sparname').attr('class','glyphicon glyphicon-check');
+			$('#sparname').addClass('correct');
+			$('#sparname').text('');
+		}
+	});
+	$('#rela').blur(function(){
+		var rela = $(this).val();
+		if (rela == '') {
+			$('#srela').removeClass('correct');
+			$('#srela').attr('class','validation');
+			$('#srela').text('지원자와의 관계를 입력해주세요');
+		} else {
+			$('#srela').attr('class','glyphicon glyphicon-check');
+			$('#srela').addClass('correct');
+			$('#srela').text('');
+		}
+	});
+	$('#rela').keyup(function(){
+		var rela = $(this).val();
+		if (rela == '') {
+			$('#srela').removeClass('correct');
+			$('#srela').attr('class','validation');
+			$('#srela').text('지원자와의 관계를 입력해주세요');
+		} else {
+			$('#srela').attr('class','glyphicon glyphicon-check');
+			$('#srela').addClass('correct');
+			$('#srela').text('');
+		}
+	});
+	$('#rela').focus(function(){
+		var rela = $(this).val();
+		if (rela == '') {
+			$('#srela').removeClass('correct');
+			$('#srela').attr('class','validation');
+			$('#srela').text('지원자와의 관계를 입력해주세요');
+		} else {
+			$('#srela').attr('class','glyphicon glyphicon-check');
+			$('#srela').addClass('correct');
+			$('#srela').text('');
+		}
+	});
+	$('#phonenum').focus(function(){
+		var phonenum = $(this).val();
+		if (phonenum.length < 10) {
+			$('#sphonenum').removeClass('correct');
+			$('#sphonenum').attr('class','validation');
+			$('#sphonenum').text('핸드폰 번호를 입력해주세요');
+		} else {
+			$('#sphonenum').attr('class','glyphicon glyphicon-check');
+			$('#sphonenum').addClass('correct');
+			$('#sphonenum').text('');
+		}
+	});
+	$('#phonenum').keyup(function(){
+		var phonenum = $(this).val();
+		if (phonenum.length < 10) {
+			$('#sphonenum').removeClass('correct');
+			$('#sphonenum').attr('class','validation');
+			$('#sphonenum').text('핸드폰 번호를 입력해주세요');
+		} else {
+			$('#sphonenum').attr('class','glyphicon glyphicon-check');
+			$('#sphonenum').addClass('correct');
+			$('#sphonenum').text('');
+		}
+	});
+	$('#phonenum').blur(function(){
+		var phonenum = $(this).val();
+		if (phonenum.length < 10) {
+			$('#sphonenum').removeClass('correct');
+			$('#sphonenum').attr('class','validation');
+			$('#sphonenum').text('핸드폰 번호를 입력해주세요');
+		} else {
+			$('#sphonenum').attr('class','glyphicon glyphicon-check');
+			$('#sphonenum').addClass('correct');
+			$('#sphonenum').text('');
+		}
+	});
+	$('#payment').blur(function(){
+		var payment = $(this).val();
+		if (payment == '') {
+			$('#spayment').removeClass('correct');
+			$('#spayment').attr('class','validation');
+			$('#spayment').text('납부일시를 입력해주세요.');
+		}else {
+			$('#spayment').attr('class','glyphicon glyphicon-check');
+			$('#spayment').addClass('correct');
+			$('#spayment').text('');
+		}
+	});
+	$('#payment').focus(function(){
+		var payment = $(this).val();
+		if (payment == '') {
+			$('#spayment').removeClass('correct');
+			$('#spayment').attr('class','validation');
+			$('#spayment').text('납부일시를 입력해주세요.');
+		}else {
+			$('#spayment').attr('class','glyphicon glyphicon-check');
+			$('#spayment').addClass('correct');
+			$('#spayment').text('');
+		}
+	});
+	$('#payment').keyup(function(){
+		var payment = $(this).val();
+		if (payment == '') {
+			$('#spayment').removeClass('correct');
+			$('#spayment').attr('class','validation');
+			$('#spayment').text('납부일시를 입력해주세요.');
+		}else {
+			$('#spayment').attr('class','glyphicon glyphicon-check');
+			$('#spayment').addClass('correct');
+			$('#spayment').text('');
+		}
+	});
+	$('#bank').blur(function(){
+		var bank = $(this).val();
+		if (bank.length < 2) {
+			$('#sbank').removeClass('correct');
+			$('#sbank').attr('class','validation');
+			$('#sbank').text('납부은행을 입력해주세요');
+		} else {
+			$('#sbank').attr('class','glyphicon glyphicon-check');
+			$('#sbank').addClass('correct');
+			$('#sbank').text('');
+		}
+	});
+	$('#bank').keyup(function(){
+		var bank = $(this).val();
+		if (bank.length < 2) {
+			$('#sbank').removeClass('correct');
+			$('#sbank').attr('class','validation');
+			$('#sbank').text('납부은행을 입력해주세요');
+		} else {
+			$('#sbank').attr('class','glyphicon glyphicon-check');
+			$('#sbank').addClass('correct');
+			$('#sbank').text('');
+		}
+	});
+	$('#bank').focus(function(){
+		var bank = $(this).val();
+		if (bank.length < 2) {
+			$('#sbank').removeClass('correct');
+			$('#sbank').attr('class','validation');
+			$('#sbank').text('납부은행을 입력해주세요');
+		} else {
+			$('#sbank').attr('class','glyphicon glyphicon-check');
+			$('#sbank').addClass('correct');
+			$('#sbank').text('');
+		}
+	});
+	$('#payname').blur(function(){
+		var payname = $(this).val();
+		if (payname.length < 2) {
+			$('#spayname').removeClass('correct');
+			$('#spayname').attr('class','validation');
+			$('#spayname').text('입금자명을 입력해주세요');
+		} else {
+			$('#spayname').attr('class','glyphicon glyphicon-check');
+			$('#spayname').addClass('correct');
+			$('#spayname').text('');
+		}
+	});
+	$('#payname').keyup(function(){
+		var payname = $(this).val();
+		if (payname.length < 2) {
+			$('#spayname').removeClass('correct');
+			$('#spayname').attr('class','validation');
+			$('#spayname').text('입금자명을 입력해주세요');
+		} else {
+			$('#spayname').attr('class','glyphicon glyphicon-check');
+			$('#spayname').addClass('correct');
+			$('#spayname').text('');
+		}
+	});
+	$('#payname').focus(function(){
+		var payname = $(this).val();
+		if (payname.length < 2) {
+			$('#spayname').removeClass('correct');
+			$('#spayname').attr('class','validation');
+			$('#spayname').text('입금자명을 입력해주세요');
+		} else {
+			$('#spayname').attr('class','glyphicon glyphicon-check');
+			$('#spayname').addClass('correct');
+			$('#spayname').text('');
+		}
+	});
+	$('#paypic').blur(function(){
+		var paypic = $(this).val();
+		if (paypic == '') {
+			$('#spaypic').removeClass('correct');
+			$('#spaypic').attr('class','validation');
+			$('#spaypic').text('입금내역 사진을 첨부해주세요.');
+		} else {
+			$('#spaypic').attr('class','glyphicon glyphicon-check');
+			$('#spaypic').addClass('correct');
+			$('#spaypic').text('');
+		}
+	});
+	$('#paypic').focus(function(){
+		var paypic = $(this).val();
+		if (paypic == '') {
+			$('#spaypic').removeClass('correct');
+			$('#spaypic').attr('class','validation');
+			$('#spaypic').text('입금내역 사진을 첨부해주세요.');
+		} else {
+			$('#spaypic').attr('class','glyphicon glyphicon-check');
+			$('#spaypic').addClass('correct');
+			$('#spaypic').text('');
+		}
+	});
+	$('#id').blur(function(){
+		var id = $('#id').val();
+		if (id.length < 5) {
+			$('#sid').removeClass('correct');
+			$('#sid').attr('class','validation');
+			$('#sid').text('아이디는 5자리 이상입니다.');
+			return;
+		} else {
+			$('#sid').attr('class','glyphicon glyphicon-check');
+			$('#sid').addClass('correct');
+			$('#sid').text('');
+		}
+		checkid(id);
+	});
+	$('#id').keyup(function(){
+		check(this);
+		var id = $('#id').val();
+		if (id.length < 5) {
+			$('#sid').removeClass('correct');
+			$('#sid').attr('class','validation');
+			$('#sid').text('아이디는 5자리 이상입니다.');
+			return;
+		} else {
+			$('#sid').attr('class','glyphicon glyphicon-check');
+			$('#sid').addClass('correct');
+			$('#sid').text('');
+		}
+		checkid(id);
+	});
+	$('#id').focus(function(){
+		var id = $(this).val();
+		if (id.length < 5) {
+			$('#sid').removeClass('correct');
+			$('#sid').attr('class','validation');
+			$('#sid').text('아이디는 5자리 이상입니다.');
+			return;
+		} else {
+			$('#sid').attr('class','glyphicon glyphicon-check');
+			$('#sid').addClass('correct');
+			$('#sid').text('');
+		}
+		checkid(id);
+	});
+	$('#pwd').keyup(function(){
+		var pwd = $(this).val();
+		if (pwd.length < 8) {
+			$('#spwd').removeClass('correct');
+			$('#spwd').attr('class','validation');
+			$('#spwd').text('비밀번호는 8자리 이상입니다.');
+		} else {
+			$('#spwd').attr('class','glyphicon glyphicon-check');
+			$('#spwd').addClass('correct');
+			$('#spwd').text('');
+		}
+	});
+	$('#pwd').blur(function(){
+		var pwd = $(this).val();
+		if (pwd.length < 8) {
+			$('#spwd').removeClass('correct');
+			$('#spwd').attr('class','validation');
+			$('#spwd').text('비밀번호는 8자리 이상입니다.');
+		} else {
+			$('#spwd').attr('class','glyphicon glyphicon-check');
+			$('#spwd').addClass('correct');
+			$('#spwd').text('');
+		}
+	});
+	$('#pwd').focus(function(){
+		var id = $(this).val();
+		if (id.length < 8) {
+			$('#spwd').removeClass('correct');
+			$('#spwd').attr('class','validation');
+			$('#spwd').text('비밀번호는 8자리 이상입니다.');
+		} else {
+			$('#spwd').attr('class','glyphicon glyphicon-check');
+			$('#spwd').addClass('correct');
+			$('#spwd').text('');
+		}
+	});
+	
+	$('#goback').click(function(){
+		location.href='/';
+	});
+	$('#submit').click(function(){
+		if ($('#scurri').hasClass('validation') || $('#sappname').hasClass('validation') || 
+			$('#sgender').hasClass('validation') || $('#sdob').hasClass('validation') || 
+			$('#sschool').hasClass('validation') || $('#sgrade').hasClass('validation') || 
+			$('#sclss').hasClass('validation') || $('#saddress').hasClass('validation') || 
+			$('#sparname').hasClass('validation') || $('#srela').hasClass('validation') || 
+			$('#sphonenum').hasClass('validation') || $('#spayment').hasClass('validation') || 
+			$('#sbank').hasClass('validation') || $('#spayname').hasClass('validation') || 
+			$('#sid').hasClass('validation') || $('#spwd').hasClass('validation')) {
+			
+			if ($('#spwd').hasClass('validation')) {
+				$('#pwd').focus();
+			}
+			if ($('#sid').hasClass('validation')) {
+				$('#id').focus();
+			}
+			if ($('#spayname').hasClass('validation')) {
+				$('#payname').focus();
+			}
+			if ($('#sbank').hasClass('validation')) {
+				$('#bank').focus();
+			}
+			if ($('#spayment').hasClass('validation')) {
+				$('#payment').focus();
+			}
+			if ($('#sphonenum').hasClass('validation')) {
+				$('#phonenum').focus();
+			}
+			if ($('#srela').hasClass('validation')) {
+				$('#rela').focus();
+			}
+			if ($('#sparname').hasClass('validation')) {
+				$('#parname').focus();
+			}
+			if ($('#saddress').hasClass('validation')) {
+				$('#findaddr').focus();
+			}
+			if ($('#sclss').hasClass('validation')) {
+				$('#clss').focus();
+			}
+			if ($('#sgrade').hasClass('validation')) {
+				$('#grade').focus();
+			}
+			if ($('#sschool').hasClass('validation')) {
+				$('#school').focus();
+			}
+			if ($('#sdob').hasClass('validation')) {
+				$('#dob').focus();
+			}
+			if ($('#sgender').hasClass('validation')) {
+				$('#gender').focus();
+			}
+			if ($('#sappname').hasClass('validation')) {
+				$('#appname').focus();
+			}
+			if ($('#scurri').hasClass('validation')) {
+				$('#curri').focus();
+			}
+			return;
+		}
+		$('#application').attr({
+			'action':'apply',
+			'method':'post',
+			'enctype':'multipart/form-data'
+		});
+		$('#application').submit();
+	});
+});
+</script>
+
+<h3 class="form-ex">지원자 정보:</h3>
+<form id="application">
+	<div class="form-vol">
+		<!-- 지원 과정(curri) -->
+		<div class="form-group">
+			<label for="curri">지원 과정:</label><span class="validation" id="scurri"></span>
+			<select class="form-control" id="curri" name="curri">
+				<option value="null">지원 과정을 선택해주세요.</option>
+				<option th:selected="${mcurri}=='초등심화1'" value="초등심화1">초등심화 1</option>
+				<option th:selected="${mcurri}=='초등심화2'" value="초등심화2">초등심화 2</option>
+				<option th:selected="${mcurri}=='중등심화1'" value="중등심화1">중등심화 1</option>
+				<option th:selected="${mcurri}=='중등심화2'" value="중등심화2">중등심화 2</option>
+				<option th:selected="${mcurri}=='사사'" value="사사">사사</option>
+			</select>
+	    </div>
+		<!-- 지원자 성명(appname) -->
+		<div class="form-group">
+			<label for="appname">지원자 성명:</label><span class="validation" id=sappname></span>
+			<input type="text" class="form-control" id="appname" name="appname" placeholder="지원자 성명" th:value="${mappname}">
+		</div>
+		<!-- 성별(gender) -->
+		<div class="form-group">
+			<label for="gender">성별:</label><span class="validation" id="sgender"></span>
+			<select class="form-control" id="gender" name="gender">
+				<option value="null">성별을 선택해주세요.</option>
+				<option th:selected="${mgender}=='남자'" value="남자">남자</option>
+				<option th:selected="${mgender}=='여자'" value="여자">여자</option>
+				<option th:selected="${mgender}=='기타'" value="기타">기타</option>
+			</select>
+	    </div>
+	    <!-- 생년월일(dob) -->
+	    <div class="form-group">
+			<label for="dob">생년월일:</label><span class="validation" id="sdob"></span>
+			<input type="date" class="form-control" id="dob" name="dob" th:value="${mdob}">
+		</div>
+		<!-- 소속 학교(school,grade,clss) -->
+		<div class="form-group">
+			<label for="school">소속 학교:</label><span class="validation" id="sschool"></span>
+			<input type="text" class="form-control" id="school" placeholder="학교 이름" name="school" th:value="${mschool}">
+			<label for="grade">학년:</label><span class="validation" id="sgrade"></span>
+			<input type="number" class="form-control" id="grade" placeholder="학년(숫자만)" name="grade" th:value="${mgrade}">
+			<label for="clss">반:</label><span class="validation" id="sclss"></span>
+			<input type="text" class="form-control" id="clss" placeholder="반(숫자만)" name="clss" th:value="${mclss}">
+		</div>
+		<!-- 학교 주소(postcode,roadAddress,jibunAddress,detailAddress) -->
+		<div class="form-group">
+			<label>학교 주소:</label><span class="validation" id="saddress"></span><br>
+			<input class="btn btn-primary" type="button" onclick="Postcode()" value="학교 주소 찾기" id="findaddr"><br>
+			<input type="text" class="form-control" id="postcode" placeholder="우편번호" name="postcode" readonly th:value="${mpostcode}">
+			<input type="text" class="form-control" id="roadAddress" placeholder="도로명주소" name="roadAddress" readonly th:value="${mroadAddress}">
+			<input type="text" class="form-control" id="jibunAddress" placeholder="지번주소" name="jibunAddress" readonly th:value="${mjibunAddress}">
+			<span id="guide" style="color:#999;display:none"></span>
+			<input type="text" class="form-control" id="detailAddress" placeholder="학교이름" name="detailAddress" readonly th:value=${mdetailAddress}>
+		</div>
+		<!-- 영재교육 이수경력 -->
+		<div class="form-group">
+			<label>영재교육 이수경력(해당자만 작성):</label><span class="validation" id="senroll"></span>
+			<table class="table table-bordered" id="enroll">
+				<thead>
+					<tr>
+					  <th>년도</th><th>영재원명</th><th>재학여부</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2021(예시)</td><td>oo교육대학교 과학영재교육원</td><td>
+						<label class="radio-inline"><input type="radio" disabled="disabled">재학</label>
+						<label class="radio-inline"><input type="radio" checked="checked" disabled="disabled">수료</label></td>
+					</tr>
+					<tr>
+						<td>2022(예시)</td><td>oo대학교 과학영재교육원 교통과 지리의 과학</td><td>
+						<label class="radio-inline"><input type="radio" disabled checked="checked">재학</label>
+    					<label class="radio-inline"><input type="radio" disabled="disabled">수료</label></td>
+					</tr>
+					<tr id='row2'>
+						<td colspan='5'> 
+							<input type='button' class="btn btn-info" value='추가' onClick='addRow("enroll")'>
+							<input type='button' class="btn btn-warning" value='삭제' onClick='deleteRow("enroll")'>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- 지원자 사진 첨부(idpic) -->
+		<div class="form-group">
+			<label for="idpic">지원자 사진 첨부:</label><span class="validation" id="sidpic"></span>
+			<input type="file" class="form-control" name="idpic" id="idpic">
+		</div>
+	</div>
+
+	<h3 class="form-ex">보호자 정보:</h3>
+	<div class="form-vol">
+		<!-- 보호자 성명(parname) -->
+		<div class="form-group">
+			<label for="parname">보호자 성명:</label><span class="validation" id="sparname"></span>
+			<input type="text" class="form-control" id="parname" name="parname" th:value="${mparname}">
+		</div>
+		<!-- 지원자와의 관계(rela) -->
+		<div class="form-group">
+			<label for="rela">지원자와의 관계:</label><span class="validation" id="srela"></span>
+			<input type="text" class="form-control" id="rela" name="rela" th:value="${mrela}">
+		</div>
+		<!-- 핸드폰 번호(phonenum) -->
+		<div class="form-group">
+			<label for="phonenum">핸드폰 번호("-"제외):</label><span class="validation" id="sphonenum"></span>
+			<input type="text" class="form-control" id="phonenum" name="phonenum" onkeypress="num();" th:value="${mphonenum}">
+		</div>
+	</div>
+
+	<h3 class="form-ex">전형료:</h3>
+	<div class="form-vol">
+		<!-- 납부일시(payment) -->
+		<div class="form-group">
+			<label for="payment">납부일시:</label><span class="validation" id="spayment"></span>
+			<input type="date" class="form-control" id="payment" name="payment" th:value="${mpayment}">
+		</div>
+		<!-- 납부은행(bank) -->
+		<div class="form-group">
+			<label for="bank">납부은행:</label><span class="validation" id="sbank"></span>
+			<input type="text" class="form-control" id="bank" name="bank" th:value="${mbank}">
+		</div>
+		<!-- 입금자명(payname) -->
+		<div class="form-group">
+			<label for="payname">입금자명:</label><span class="validation" id="spayname"></span>
+			<input type="text" class="form-control" id="payname" name="payname" th:value="${mpayname}">
+		</div>
+		<!-- 지원자 사진 첨부(paypic) -->
+		<div class="form-group">
+			<label for="paypic">입금내역 사진 첨부:</label><span class="validation" id="spaypic"></span>
+			<input type="file" class="form-control" id="paypic" name="paypic">
+		</div>
+	</div>
+	<!-- 임시 계정(id,pwd) -->
+	<h3 class="form-ex">정보수정을 위한 임시계정 생성:</h3>
+	<div class="form-group">
+		<label for="id">아이디:</label><span class="validation" id="sid"></span>
+		<input type="text" class="form-control" id="id" placeholder="아이디를 입력하세요" name="id" th:value="${mid}">
+	</div>
+	<div class="form-group">
+		<label for="pwd">비밀번호:</label><span class="validation" id="spwd"></span>
+		<input type="password" class="form-control" id="pwd" placeholder="비밀번호를 입력하세요" name="pwd" th:value="${mpwd}">
+	</div>
+</form>
+<div class="form-button">
+	<button class="btn btn-default" id="goback">뒤로가기</button><button class="btn btn-success" id="submit">접수증 재발급</button>
+</div>
+</html>

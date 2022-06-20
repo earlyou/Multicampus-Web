@@ -1,0 +1,132 @@
+<meta charset="UTF-8">
+<style>
+	.center_wh > .login_mo > span{
+		font-size: 10px;
+		margin-left: 10px;
+		color: red;
+	}
+	
+</style>
+<script>
+$(document).ready(function(){
+	$('#id').blur(function(){
+		var id = $('#id').val();
+		if (id.length < 5) {
+			$('#spid').removeClass('correct');
+			$('#spid').attr('class','validation');
+			$('#spid').text('아이디는 5자리 이상입니다.');
+		} else {
+			$('#spid').removeClass('validation');
+			$('#spid').addClass('correct');
+			$('#spid').text('');
+		}
+	});
+	$('#id').keyup(function(){
+		check(this);
+		var id = $('#id').val();
+		if (id.length < 5) {
+			$('#spid').removeClass('correct');
+			$('#spid').attr('class','validation');
+			$('#spid').text('아이디는 5자리 이상입니다.');
+		} else {
+			$('#spid').removeClass('validation');
+			$('#spid').addClass('correct');
+			$('#spid').text('');
+		}
+	});
+	$('#id').focus(function(){
+		var id = $(this).val();
+		if (id.length < 5) {
+			$('#spid').removeClass('correct');
+			$('#spid').attr('class','validation');
+			$('#spid').text('아이디는 5자리 이상입니다.');
+		} else {
+			$('#spid').removeClass('validation');
+			$('#spid').addClass('correct');
+			$('#spid').text('');
+		}
+	});
+	$('#pwd').keyup(function(){
+		var pwd = $(this).val();
+		if (pwd.length < 8) {
+			$('#sppwd').removeClass('correct');
+			$('#sppwd').attr('class','validation');
+			$('#sppwd').text('비밀번호는 8자리 이상입니다.');
+		} else {
+			$('#sppwd').removeClass('validation');
+			$('#sppwd').addClass('correct');
+			$('#sppwd').text('');
+		}
+	});
+	$('#pwd').blur(function(){
+		var pwd = $(this).val();
+		if (pwd.length < 8) {
+			$('#sppwd').removeClass('correct');
+			$('#sppwd').attr('class','validation');
+			$('#sppwd').text('비밀번호는 8자리 이상입니다.');
+		} else {
+			$('#sppwd').removeClass('validation');
+			$('#sppwd').addClass('correct');
+			$('#sppwd').text('');
+		}
+	});
+	$('#pwd').focus(function(){
+		var id = $(this).val();
+		if (id.length < 8) {
+			$('#sppwd').removeClass('correct');
+			$('#sppwd').attr('class','validation');
+			$('#sppwd').text('비밀번호는 8자리 이상입니다.');
+		} else {
+			$('#sppwd').removeClass('validation');
+			$('#sppwd').addClass('correct');
+			$('#sppwd').text('');
+		}
+	});
+	
+	$('#backtomain').click(function(){
+		location.href='/';
+	});
+	
+	$('#login_mo').click(function(){
+		if ($('#spid').hasClass('validation') || $('#sppwd').hasClass('validation')) {
+			if ($('#sppwd').hasClass('validation')) {
+				$('#pwd').focus();
+			}
+			if ($('#spid').hasClass('validation')) {
+				$('#id').focus();
+			}
+			return;
+		}
+		
+		$('#loginmo').attr({
+			'action':'modifymain',
+			'method':'post'
+		});
+		$('#loginmo').submit();
+	});
+});
+</script>
+
+<div class="center_wh">
+	<div>
+		<p id="exp">지원자 정보 수정</p>
+	</div>
+	<form class="login_mo" id="loginmo">
+		<span class="validation" id="spid"></span><br>
+		<div class="input-group" id="inputidmo">
+			<span class="input-group-addon"><label class="glyphicon glyphicon-user"></label></span>
+			<input id="id" type="text" class="form-control" name="id" placeholder="아이디">
+		</div>
+		<span class="validation" id="sppwd"></span><br>
+		<div class="input-group" id="inputpwdmo">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+			<input id="pwd" type="password" class="form-control" name="pwd" placeholder="비밀번호">
+		</div>
+		<div>
+			<button type="button" class="btn btn-default" id="login_mo">로그인</button>
+		</div>
+	</form>
+	<div>
+		<button type="button" class="btn btn-default" id="backtomain">뒤로 가기</button>
+	</div>
+</div>

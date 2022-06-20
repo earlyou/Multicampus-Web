@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<script>
+$(document).ready(function(){
+	$('#login').click(function(){
+		location.href='loginmain';
+	});
+	$('#apply').click(function(){
+		location.href='applymain';
+	});
+	$('#findmap').click(function(){
+		location.href='findmapmain';
+	});
+});
+</script>
+
+<div class="center_wh">
+	<div>
+		<button type="button" class="btn btn-default" id="apply">원서접수</button>
+	</div>
+	<div>
+		<button type="button" class="btn btn-default" id="login">지원자 정보 수정</button>
+	</div>
+	<div>
+		<button type="button" class="btn btn-default" id="findmap">찾아오시는 길</button>
+	</div>
+</div>

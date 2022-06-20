@@ -1,0 +1,168 @@
+@charset "EUC-KR";
+	.center_wh > .login_form > .input-group > .form-control{
+		width: 200px;
+	}
+	.center_wh{
+		width: 500px;
+		height: 500px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+	div{
+		margin-bottom: 50px;
+	}
+	#head{
+		width: 410px;
+		text-align: center;
+	}
+	#login{
+		margin-top: 10px;
+		width: 100px;
+	}
+	#apply, #login, #findmap{
+		width: 500px;
+		height: 100px;
+		margin-bottom: 25px;
+		font-size: 28px;
+	}
+	#exp{
+		font-size: 15px;
+	}
+	#backtomain{
+		margin-top: 50px;
+	}
+	#backtomainmap{
+		float: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.form-ex{
+		width: 600px;
+		margin-top: 100px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.form-vol{
+		width: 800px;
+		height: auto;
+/*		background: #E1E0E0;*/
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 100px;
+	}
+	.form-group{
+		width: 600px;
+		margin-top: auto;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 15px;
+	}
+	.form-inline{
+		width: 300px;
+		margin-top: auto;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 15px;
+	}
+	.form-vol > .form-group > .table-bordered{
+		border-collapse:separate !important;
+		border: 1px solid black !important;
+		width: 600px !important;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center !important;
+		
+	}
+	th, td{
+		border-collapse:separate;
+		border: 1px solid black !important;
+		width: 600px !important;
+		text-align: center !important;
+		background: white;
+	}
+	#yeartable{
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+	#gname{
+		word-wrap: break-word !important;
+        word-break: break-all !important;
+	}
+	#yearid{
+		width:30px;
+	}
+	#application{
+		height: auto;
+	}
+	.form-button{
+		width: 600px;
+		margin-top: 100px;;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 100px;
+	}
+	.form-print{
+		width: 1200px;
+		margin-top: 100px;;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 100px;
+	}
+	#submit{
+		float: right;
+	}
+	#printall{
+		float: right;
+	}
+	.confirm{
+		margin-bottom: 20px;
+		width: 1200px;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.tblhead{
+		width: 10% !important;
+		background: #E6E6E6;
+	}
+	.confirm > span{
+		height: 50px;
+	}
+	#info1{
+		width: 1200px;
+		height: 50px;
+	}
+	#info2{
+		height: 450px;
+	}
+	#info3{
+		height: 100px;
+	}
+	#info4{
+		height: 150px;
+		width: 1200px;
+	}
+	.input-group{
+		width: 300px;
+		margin-bottom: 0;
+	}
+	#inputpwdmo{
+		margin-bottom: 20px;
+	}
+	
+	@media print {
+	    #goback { display:none; };
+	    #printall {display: none;};
+	}
+	.correct{
+		color: green;
+		font-size: 15px;
+	}
+	.center_map{
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
